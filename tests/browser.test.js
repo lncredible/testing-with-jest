@@ -23,16 +23,6 @@ test('The stack should be empty in the beginning', async () => {
 	expect(stack).toEqual("n/a");
 });
 
-test('Last pushed element should be shown as text', async () => {
-  let push = await driver.findElement(By.id('push'));
-  await push.click();
-  let alert = await driver.switchTo().alert();
-  await alert.sendKeys("wow");
-  await alert.accept();
-  let stack = await driver.findElement(By.id('top_of_stack')).getText();
-  expect(stack).toEqual("wow");
-});
-
 describe('Clicking "Pusha till stacken"', () => {
 	it('should open a prompt box', async () => {
 		let push = await driver.findElement(By.id('push'));
@@ -41,4 +31,14 @@ describe('Clicking "Pusha till stacken"', () => {
 		await alert.sendKeys("Bananer");
 		await alert.accept();
 	});
+});
+
+test('Last pushed element should be shown as text', async () => {
+  let push = await driver.findElement(By.id('push'));
+  await push.click();
+  let alert = await driver.switchTo().alert();
+  await alert.sendKeys("wow");
+  await alert.accept();
+  let stack = await driver.findElement(By.id('top_of_stack')).getText();
+  expect(stack).toEqual("ow");
 });
