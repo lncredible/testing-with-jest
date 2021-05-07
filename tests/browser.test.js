@@ -40,5 +40,5 @@ test('Last pushed element should be shown as text', async () => {
   await alert.sendKeys("wow");
   await alert.accept();
   let stack = await driver.findElement(By.id('top_of_stack')).getText();
-  expect(stack).toEqual("ow");
+  expect(stack).toEqual("wow");
 });
